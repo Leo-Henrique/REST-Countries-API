@@ -1,9 +1,10 @@
 import React from "react";
 import { Content, Flag, Wrapper } from "./style";
 import { Link } from "react-router-dom";
+import { CountriesContext } from "../../CountriesContext";
 
 export default function index() {
-    const [countries, setCountries] = React.useState();
+    const { countries, setCountries } = React.useContext(CountriesContext);
 
     React.useEffect(() => {
         (async () => {

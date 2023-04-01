@@ -7,6 +7,7 @@ import Home from "./components/pages/Home";
 import Country from "./components/Country";
 import NotFound from "./components/NotFound.jsx";
 import Header from "./components/Header";
+import { CountriesStorage } from "./CountriesContext";
 
 export default function App() {
     return (
@@ -16,11 +17,13 @@ export default function App() {
 
                 <Header />
 
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="country/:id" element={<Country />} />
-                    <Route path="*" element={<NotFound />} />
-                </Routes>
+                <CountriesStorage>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="country/:id" element={<Country />} />
+                        <Route path="*" element={<NotFound />} />
+                    </Routes>
+                </CountriesStorage>
             </ThemeProvider>
         </BrowserRouter>
     );
