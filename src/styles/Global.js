@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle(({ theme }) => (css`
         line-height: 1.5;
         font-weight: 300;
         font-family: ${theme.fontFamilies[0]};
-        color: ${theme.colors.supportDark1};
+        color: ${theme.colors.text};
     }
 `));
 

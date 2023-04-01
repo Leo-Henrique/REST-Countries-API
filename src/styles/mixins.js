@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import theme from "./theme";
+import { theme } from "./theme";
 
 export const transition = (properties, type = "button") => (css`
     transition-property: ${properties.join(", ")};

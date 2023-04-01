@@ -1,13 +1,13 @@
 import { breakpoints, desktop, animation } from "./mediaQueries";
 import * as mixins from "./mixins";
 
-const theme = {
+export const theme = {
     breakpoints,
     media: { desktop, animation },
     mixins,
     grid: {
         container: {
-            default: "1320px",
+            default: "1280px",
             xxl: "1140px",
             xl: "960px",
             lg: "720px",
@@ -16,20 +16,13 @@ const theme = {
         },
         gutter: "30px",
     },
-    fontFamilies: ["'Poppins', sans-serif"],
+    fontFamilies: ["'Nunito Sans', sans-serif"],
     fontSizes: {
         h1: "6.4rem",
         h2: "4.8rem",
         h3: "2.8rem",
         body: "1.8rem",
         small: "1.4rem"
-    },
-    colors: {
-        supportLight1: "#FFF",
-        supportDark1: "#000",
-        success: "#01CC88",
-        warning: "#FFC107",
-        danger: "#DC3545",
     },
     transitions: {
         global: {
@@ -41,11 +34,20 @@ const theme = {
             timingFunction: "ease-in-out",
         },
     },
-    zIndex: {
-        header: 10,
-        nav: 20,
-        headerContent: 30,
-    },
 };
 
-export default theme;
+export const light = {
+    block: "#ffffff",
+    bg: "#fafafa",
+    text: "#111517",
+    input: "#858585",
+    danger: "#DC3545"
+}
+
+export const dark = {
+    block: "#2b3945",
+    bg: "#202c37",
+    text: "#ffffff",
+    input: "#ffffff",
+    danger: "#DC3545"
+}
