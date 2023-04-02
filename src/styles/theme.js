@@ -36,18 +36,19 @@ export const theme = {
     },
 };
 
-export const light = {
-    block: "#ffffff",
-    bg: "#fafafa",
-    text: "#111517",
-    input: "#858585",
-    danger: "#DC3545"
-}
-
-export const dark = {
-    block: "#2b3945",
-    bg: "#202c37",
-    text: "#ffffff",
-    input: "#ffffff",
-    danger: "#DC3545"
+export const colorScheme = {
+    light: {
+        block: "#ffffff",
+        bg: "#fafafa",
+        text: "#111517",
+        input: "#858585",
+        danger: "#DC3545"
+    },
+    dark: {
+        block: "#2b3945",
+        bg: "#202c37",
+        text: "#ffffff",
+        input: "#ffffff",
+        danger: "#DC3545"
+    }
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
-import { theme, light, dark } from "./styles/theme";
+import { theme, colorScheme } from "./styles/theme";
 import GlobalStyle from "./styles/global";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/pages/Home";
@@ -10,12 +10,34 @@ import Header from "./components/Header";
 import { CountriesStorage } from "./contexts/CountriesContext";
 
 export default function App() {
+    const [themePreference, setThemePreference] = React.useState(
+        devicePreference()
+    );
+    function devicePreference() {
+        if (!localStorage.theme) {
+            const lightPreference = "(preferes-color-scheme: light)";
+
+            if (matchMedia(lightPreference).matches) 
+                return "light";
+            else 
+                return "dark";
+        }
+    }
+
     return (
         <BrowserRouter>
-            <ThemeProvider theme={{ ...theme, colors: light }}>
+            <ThemeProvider
+                theme={{
+                    ...theme,
+                    colors: colorScheme[themePreference],
+                }}
+            >
                 <GlobalStyle />
 
-                <Header />
+                <Header
+                    themePreference={themePreference}
+                    setThemePreference={setThemePreference}
+                />
 
                 <CountriesStorage>
                     <Routes>
