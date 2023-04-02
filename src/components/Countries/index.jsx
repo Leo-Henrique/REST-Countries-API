@@ -1,14 +1,16 @@
 import React from "react";
 import { Content, Flag, Wrapper } from "./style";
 import { Link } from "react-router-dom";
-import { CountriesContext } from "../../CountriesContext";
+import { CountriesContext } from "../../contexts/CountriesContext";
+import { H2 } from "../helpers/Headings";
+import { GET_COUNTRIES } from "../../API";
 
-export default function index() {
+export default function Countries() {
     const { countries, setCountries } = React.useContext(CountriesContext);
 
     React.useEffect(() => {
         (async () => {
-            const response = await fetch("https://restcountries.com/v3.1/all");
+            const response = await fetch(GET_COUNTRIES);
             const data = await response.json();
 
             if (response.ok) setCountries(data);
@@ -26,7 +28,7 @@ export default function index() {
                             </Flag>
                             
                             <Content>
-                                <h2>{name.common}</h2>
+                                <H2>{name.common}</H2>
 
                                 <ul>
                                     <li>
@@ -39,7 +41,7 @@ export default function index() {
                                     </li>
                                     <li>
                                         <span>Capital:</span>
-                                        <span>{capital}</span>
+                                        <span>{capital ? capital.join(", ") : "None"}</span>
                                     </li>
                                 </ul>
                             </Content>
