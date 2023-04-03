@@ -8,11 +8,18 @@ export const Wrapper = styled.label(({ theme }) => (css`
     border-radius: ${theme.borderRadius.block};
     color: ${theme.colors.text};
 
+    ${theme.breakpoints.md} {
+        max-width: initial;
+        grid-column: 1 / 3;
+    }
+
     span {
         display: block;
         padding-left: 2rem;
         svg {
-            fill: currentColor
+            width: 20px;
+            height: auto;
+            fill: currentColor;
         }
     }
     input {

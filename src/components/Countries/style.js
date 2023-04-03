@@ -6,6 +6,13 @@ export const Wrapper = styled.ul(({ theme }) => (css`
     flex-wrap: wrap;
     gap: 7rem;
 
+    ${theme.breakpoints.xxl} {
+        gap: 5rem;
+    }
+    ${theme.breakpoints.lg} {
+        gap: 2rem;
+    }
+
     > li {
         flex: 1 260px;
         background-color: ${theme.colors.block};

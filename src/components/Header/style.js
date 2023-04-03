@@ -6,24 +6,25 @@ export const Wrapper = styled.header(({ theme }) => (css`
     padding: 2rem;
     margin-bottom: 4.5rem;
 
-    ${theme.breakpoints.lg} {
-        margin-bottom: 3rem;
-    }
-
     > div {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 3rem;
+        gap: 4rem;
+
+        ${theme.breakpoints.sm} {
+            gap: 3rem;
+        }
     }
 `));
 
 export const ThemeSwitcher = styled.button(({ theme }) => (css`
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.8rem;
     color: ${theme.colors.text};
     font-weight: 600;
+    white-space: nowrap;
     cursor: pointer;
     ${theme.mixins.transition(["color"])};
 

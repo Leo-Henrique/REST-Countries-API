@@ -61,7 +61,7 @@ export default function Country() {
                     setNotFound(true);
             })();
         }
-    }, []);
+    }, [id]);
 
     if (country) {
         return (

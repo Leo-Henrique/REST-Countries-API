@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle(({ theme }) => (css`
         color: ${theme.colors.text}; 
         background-color: ${theme.colors.bg};
         ${theme.mixins.transition(["background-color"])};
+        padding-bottom: 4rem;
     }
     h1, h2, h3 {
         color: ${theme.colors.text};

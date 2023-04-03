@@ -3,6 +3,10 @@ import styled, { css } from "styled-components";
 export const Wrapper = styled.div(({ theme }) => (css`
     position: relative;
     justify-self: end;
+
+    ${theme.breakpoints.md} {
+        justify-self: start;
+    }
 `));
 
 export const Button = styled.button(({ theme }) => (css`

@@ -46,7 +46,7 @@ export const shadowStates = ({ theme }) => (css`
 `);
 
 export const button = (({ theme }) => (css`
-    min-width: 130px;
+    min-width: 100px;
     display: inline-flex;
     align-items: center;
     justify-content: center;

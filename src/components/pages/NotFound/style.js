@@ -8,11 +8,16 @@ export const Wrapper = styled(Container)(({ theme }) => (css`
     padding: 5rem 0;
 
     h2 {
-        margin-bottom: 6rem;
+        font-size: 3.2rem;
+        margin-bottom: 5rem;
+
+        ${theme.breakpoints.sm} {
+            font-size: 2.8rem;
+        }
     }
     p {
         max-width: 500px;
-        margin-bottom: 4rem;
+        margin-bottom: 3rem;
         ${theme.mixins.center};
     }
     a {
