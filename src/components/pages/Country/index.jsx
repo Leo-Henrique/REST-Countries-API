@@ -1,11 +1,11 @@
 import React from "react";
 import useMetadata from "../../../hooks/useMetadata";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { CountriesContext } from "../../../contexts/CountriesContext";
 import { GET_COUNTRIES_BY_CODE, GET_COUNTRY } from "../../../API";
 import { Wrapper, Back, Flag, Content, Infos, BorderCountries } from "./style";
 import SVGBack from "../../../assets/back.svg";
-import { H1 } from "../../helpers/Headings";
+import { H2 } from "../../helpers/Headings";
 import NotFound from "../../pages/NotFound";
 
 export default function Country() {
@@ -67,8 +67,10 @@ export default function Country() {
         return (
             <Wrapper>
                 <Back>
-                    <SVGBack />
-                    <span>Back</span>
+                    <Link to="/">
+                        <SVGBack />
+                        <span>Back</span>
+                    </Link>
                 </Back>
 
                 <Flag>
@@ -79,7 +81,7 @@ export default function Country() {
                 </Flag>
 
                 <Content>
-                    <H1 as="h2">{country.name.common}</H1>
+                    <H2>{country.name.common}</H2>
 
                     <Infos>
                         {Object.keys(infos()).map(name => (
@@ -96,7 +98,11 @@ export default function Country() {
 
                             <ul>
                                 {borderCountries.map(country => (
-                                    <li key={country}>{country}</li>
+                                    <li key={country}>
+                                        <Link to={`/country/${country}`}>
+                                            {country}
+                                        </Link> 
+                                    </li>
                                 ))}
                             </ul>
                         </BorderCountries>

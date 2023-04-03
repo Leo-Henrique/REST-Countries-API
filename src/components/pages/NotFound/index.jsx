@@ -13,7 +13,7 @@ export default function NotFound() {
 
     return (
         <Wrapper>
-            <H1>Page not found!</H1>
+            <H1 as="h2">Page not found!</H1>
 
             <p>
                 The requested page has changed or never existed. Make sure the address is correct or go back to the homepage.

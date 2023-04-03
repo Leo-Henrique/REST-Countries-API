@@ -5,7 +5,9 @@ import SVGSearch from "../../assets/search.svg";
 export default function Search() {
     return (
         <Wrapper htmlFor="search">
-            <SVGSearch />
+            <span>
+                <SVGSearch />
+            </span>
 
             <input
                 type="search"

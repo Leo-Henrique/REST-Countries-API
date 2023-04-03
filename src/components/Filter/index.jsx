@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, Toggle, Wrapper } from "./style";
+import { Menu, Button, Wrapper } from "./style";
 import SVGArrow from "../../assets/arrow.svg";
 
 export default function Filter() {
@@ -7,11 +7,11 @@ export default function Filter() {
 
     return (
         <Wrapper>
-            <Toggle>
+            <Button>
                 <span>Filter by Region</span>
 
                 <SVGArrow />
-            </Toggle>
+            </Button>
 
             <Menu>
                 {regions.map(region => (

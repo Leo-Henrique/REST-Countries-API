@@ -26,6 +26,7 @@ export default function App() {
             <ThemeProvider
                 theme={{
                     ...theme,
+                    title: themePreference,
                     colors: colorScheme[themePreference],
                 }}
             >

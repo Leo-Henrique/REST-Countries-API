@@ -18,11 +18,9 @@ export const theme = {
     },
     fontFamilies: ["'Nunito Sans', sans-serif"],
     fontSizes: {
-        h1: "6.4rem",
-        h2: "4.8rem",
-        h3: "2.8rem",
-        body: "1.8rem",
-        small: "1.4rem"
+        h1: "2.4rem",
+        h2: "1.9rem",
+        body: "1.4rem",
     },
     transitions: {
         global: {
@@ -34,6 +32,10 @@ export const theme = {
             timingFunction: "ease-in-out",
         },
     },
+    borderRadius: {
+        block: "5px",
+    },
+    shadow: "0 3px 8px 2px",
 };
 
 export const colorScheme = {
@@ -42,13 +44,15 @@ export const colorScheme = {
         bg: "#fafafa",
         text: "#111517",
         input: "#858585",
-        danger: "#DC3545"
+        danger: "#DC3545",
+        shadow: "rgba(255, 255, 255, 0)",
     },
     dark: {
         block: "#2b3945",
         bg: "#202c37",
         text: "#ffffff",
-        input: "#ffffff",
-        danger: "#DC3545"
-    }
-}
+        input: "#a6a6a6",
+        danger: "#DC3545",
+        shadow: "rgba(0, 0, 0, 0.1)",
+    },
+};

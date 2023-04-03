@@ -9,7 +9,13 @@ const GlobalStyle = createGlobalStyle(({ theme }) => (css`
         line-height: 1.5;
         font-weight: 300;
         font-family: ${theme.fontFamilies[0]};
+        color: ${theme.colors.text}; 
+        background-color: ${theme.colors.bg};
+        ${theme.mixins.transition(["background-color"])};
+    }
+    h1, h2, h3 {
         color: ${theme.colors.text};
+        font-weight: 600;
     }
 `));
 
