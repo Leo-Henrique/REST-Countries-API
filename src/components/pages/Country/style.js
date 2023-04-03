@@ -129,6 +129,7 @@ export const BorderCountries = styled.div(({ theme }) => (css`
             font-weight: 300;
             opacity: 0.7; 
             padding: 0.6rem 1.2rem;
+            white-space: nowrap;
         }
     }
 `));

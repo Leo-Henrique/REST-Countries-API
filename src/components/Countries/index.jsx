@@ -31,7 +31,7 @@ export default function Countries() {
                                 <ul>
                                     <li>
                                         <span>Population: </span>
-                                        <span>{population}</span>
+                                        <span>{population.toLocaleString("en-US")}</span>
                                     </li>
                                     <li>
                                         <span>Region: </span>

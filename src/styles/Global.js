@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle(({ theme }) => (css`
         font-family: ${theme.fontFamilies[0]};
         color: ${theme.colors.text}; 
         background-color: ${theme.colors.bg};
-        ${theme.mixins.transition(["background-color"])};
+        ${theme.mixins.transition(["background-color", "opacity"], "global")};
         padding-bottom: 4rem;
     }
     h1, h2, h3 {

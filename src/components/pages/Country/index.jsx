@@ -18,7 +18,7 @@ export default function Country() {
         const handleArray = (array) => array ? array.join(", ") : "None";
 
         return {
-            "Population": country.population,
+            "Population": country.population.toLocaleString("en-US"),
             "Region": country.region,
             "Sub Region": country.subregion,
             "Capital": handleArray(country.capital),
