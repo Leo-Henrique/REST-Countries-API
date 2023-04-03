@@ -6,7 +6,7 @@ import { GET_COUNTRIES_BY_CODE, GET_COUNTRY } from "../../../API";
 import { Wrapper, Back, Flag, Content, Infos, BorderCountries } from "./style";
 import SVGBack from "../../../assets/back.svg";
 import { H1 } from "../../helpers/Headings";
-import NotFound from "../../NotFound";
+import NotFound from "../../pages/NotFound";
 
 export default function Country() {
     const { id } = useParams();

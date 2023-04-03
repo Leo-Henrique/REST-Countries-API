@@ -6,8 +6,11 @@ import SVGMoon from "../../assets/moon.svg";
 
 export default function Header({ themePreference, setThemePreference }) {
     const themeNotActive = themePreference === "light" ? "dark" : "light";
-    const toggleTheme = () => setThemePreference(themeNotActive);
-    const formattedName = () => {
+    const toggleTheme = () => {
+        setThemePreference(themeNotActive);
+        localStorage.theme = themeNotActive;
+    };
+    const formattedThemeName = () => {
         const firstLetter = themeNotActive[0].toUpperCase();
 
         return firstLetter + themeNotActive.slice(1);
@@ -20,7 +23,7 @@ export default function Header({ themePreference, setThemePreference }) {
 
                 <ThemeSwitcher onClick={toggleTheme}>
                     <SVGMoon />
-                    <span>{formattedName()} Mode</span>
+                    <span>{formattedThemeName()} Mode</span>
                 </ThemeSwitcher>
             </Container>
         </Wrapper>
