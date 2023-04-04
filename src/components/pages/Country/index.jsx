@@ -32,10 +32,12 @@ export default function Country() {
 
     React.useEffect(() => {
         const getCountry = async () => {
-            const { data } = await request(GET_COUNTRY(id));
+            const { response, data } = await request(GET_COUNTRY(id));
 
-            setCountry(data[0]);
-            getBorderCountries(data[0]);
+            if (response.ok) {
+                setCountry(data[0]);
+                getBorderCountries(data[0]);
+            }
         };
         async function getBorderCountries(country) {
             if (country && country.borders) {
@@ -55,6 +57,7 @@ export default function Country() {
         } else getCountry();
     }, [id]);
 
+console.log(country)
 
     if (country) {
         return (

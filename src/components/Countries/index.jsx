@@ -13,13 +13,14 @@ export default function Countries() {
 
     React.useEffect(() => {
         (async () => {
-            const { data } = await request(GET_COUNTRIES);
+            const { response, data } = await request(GET_COUNTRIES);
             
-            setAllCountries(data);
-            setCountries(data);
+            if (response.ok) {
+                setAllCountries(data);
+                setCountries(data);
+            }
         })();
     }, []);
-
 
     if (countries) {
         return (
