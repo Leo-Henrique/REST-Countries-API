@@ -7,6 +7,7 @@ import { Wrapper, Back, Flag, Content, Infos, BorderCountries } from "./style";
 import SVGBack from "../../../assets/back.svg";
 import { H2 } from "../../helpers/Headings";
 import useFetch from "../../../hooks/useFetch";
+import Error from "../../helpers/Error";
 
 export default function Country() {
     const { id } = useParams();
@@ -110,7 +111,7 @@ console.log(country)
     else if (loading)
         return <>Loading</>
     else if (error)
-        return <>Error</>;
+        return <Error msg={error} />;
     else
         return null;
 }

@@ -20,7 +20,7 @@ export const Wrapper = styled(Container)(({ theme }) => (css`
         margin-bottom: 3rem;
         ${theme.mixins.center};
     }
-    a {
+    a, button {
         ${theme.mixins.button};
         ${theme.mixins.center};
         padding: 1.8rem 3rem;

@@ -5,6 +5,7 @@ import { CountriesContext } from "../../contexts/CountriesContext";
 import { H2 } from "../helpers/Headings";
 import { GET_COUNTRIES } from "../../API";
 import useFetch from "../../hooks/useFetch";
+import Error from "../helpers/Error";
 
 export default function Countries() {
     const { setAllCountries, countries, setCountries } = 
@@ -57,6 +58,6 @@ export default function Countries() {
     else if (loading)
         return <>Loading</>
     else if (error)
-        return <>Error</>
+        return <Error msg={error} />
     else null;
 }
