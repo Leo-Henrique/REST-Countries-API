@@ -4,11 +4,12 @@ import SVGSearch from "../../assets/search.svg";
 import { CountriesContext } from "../../contexts/CountriesContext";
 
 export default function Search() {
-    const { allCountries, setCountries } = React.useContext(CountriesContext);
+    const { allCountries, setCountries, filter, setFilter } = React.useContext(CountriesContext);
     const [value, setValue] = React.useState("");
     const change = ({ target }) => {
         setValue(target.value);
 
+        if (filter) setFilter(null);
         if (target.value !== "") {
             const filtered = allCountries.filter(({ name }) => {
                 const regex = new RegExp(`${target.value}`, "i");

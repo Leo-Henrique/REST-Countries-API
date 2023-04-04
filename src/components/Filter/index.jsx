@@ -30,6 +30,10 @@ export default function Filter() {
         closeClear();
     };
 
+    React.useEffect(() => {
+        if (!filter) closeClear();
+    }, [filter]);
+
     return (
         <Wrapper>
             <Clear
