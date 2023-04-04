@@ -6,7 +6,6 @@ import { GET_COUNTRIES_BY_CODE, GET_COUNTRY } from "../../../API";
 import { Wrapper, Back, Flag, Content, Infos, BorderCountries } from "./style";
 import SVGBack from "../../../assets/back.svg";
 import { H2 } from "../../helpers/Headings";
-import NotFound from "../../pages/NotFound";
 import useFetch from "../../../hooks/useFetch";
 
 export default function Country() {
@@ -39,7 +38,7 @@ export default function Country() {
             getBorderCountries(data[0]);
         };
         async function getBorderCountries(country) {
-            if (country.borders) {
+            if (country && country.borders) {
                 const codes = country.borders.join();
                 const { data } = await request(GET_COUNTRIES_BY_CODE(codes));
                 const borderCountries = data.map(country => country.name.common);
