@@ -31,7 +31,7 @@ export const Back = styled.div(({ theme }) => (css`
     ${theme.breakpoints.md} {
         margin-bottom: 2rem;
     }
-    a {
+    button {
         ${theme.mixins.button};
 
         svg {

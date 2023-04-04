@@ -55,6 +55,7 @@ export const button = (({ theme }) => (css`
     background-color: ${theme.colors.block};
     color: ${theme.colors.text};
     ${shadowStates};
+    cursor: pointer;
 `));
 
 export const infos = (css`
