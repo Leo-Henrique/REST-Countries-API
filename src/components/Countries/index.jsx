@@ -4,18 +4,22 @@ import { Link } from "react-router-dom";
 import { CountriesContext } from "../../contexts/CountriesContext";
 import { H2 } from "../helpers/Headings";
 import { GET_COUNTRIES } from "../../API";
+import useFetch from "../../hooks/useFetch";
 
 export default function Countries() {
-    const { countries, setCountries } = React.useContext(CountriesContext);
+    const { setAllCountries, countries, setCountries } = 
+        React.useContext(CountriesContext);
+    const { request, error, loading } = useFetch();
 
     React.useEffect(() => {
         (async () => {
-            const response = await fetch(GET_COUNTRIES);
-            const data = await response.json();
-
-            if (response.ok) setCountries(data);
+            const { data } = await request(GET_COUNTRIES);
+            
+            setAllCountries(data);
+            setCountries(data);
         })();
     }, []);
+
 
     if (countries) {
         return (
@@ -48,5 +52,10 @@ export default function Countries() {
                 ))}
             </Wrapper>
         );
-    } else return null;
+    } 
+    else if (loading)
+        return <>Loading</>
+    else if (error)
+        return <>Error</>
+    else null;
 }
