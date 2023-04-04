@@ -9,7 +9,7 @@ export const Wrapper = styled.div(({ theme }) => (css`
     }
 `));
 
-export const Button = styled.button(({ theme, transition }) => (css`
+export const Button = styled.button(({ theme, $transition }) => (css`
     display: flex;
     align-items: center;
     column-gap: 4rem;
@@ -25,11 +25,11 @@ export const Button = styled.button(({ theme, transition }) => (css`
         height: auto;
         fill: currentColor;
         ${theme.mixins.transition(["transform"], "global")};
-        transform: ${transition ? "rotate(180deg)" : "none"};
+        transform: ${$transition ? "rotate(180deg)" : "none"};
     }
 `));
 
-export const Menu = styled.ul(({ theme, dropdown, transition }) => (css`
+export const Menu = styled.ul(({ theme, $display, $transition }) => (css`
     position: absolute;
     inset: auto 0;
     z-index: 10;
@@ -38,9 +38,9 @@ export const Menu = styled.ul(({ theme, dropdown, transition }) => (css`
     border-radius: ${theme.borderRadius.block};
     box-shadow: 0 5px 5px 4px ${theme.colors.shadow};
     padding: calc(1.2rem - 0.4rem) 0;
-    display: ${dropdown ? "block" : "none"};
-    opacity: ${transition ? 1 : 0};
-    transform: ${transition ? "none" : "translate3d(0, -15px, 0)"};
+    display: ${$display ? "block" : "none"};
+    opacity: ${$transition ? 1 : 0};
+    transform: ${$transition ? "none" : "translate3d(0, -15px, 0)"};
     ${theme.mixins.transition(["opacity", "transform"], "global")};
 
     button {
