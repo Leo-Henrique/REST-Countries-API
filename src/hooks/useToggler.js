@@ -5,26 +5,27 @@ export default function useToggler() {
     const [display, setDisplay] = React.useState(false);
     const [transition, setTransition] = React.useState(false);
     const { transitions } = useTheme();
+    const attr = "data-transition";
+    const duration = transitions.global.duration;
+    const open = (btn) => {
+        setDisplay(true);
+        setTimeout(() => setTransition(true), 20);
+        setTimeout(() => btn && btn.removeAttribute(attr), duration + 20);
+    }
+    const close = (btn) => {
+        setTransition(false)
+        setTimeout(() => {
+            setDisplay(false);
+            if (btn) btn.removeAttribute(attr);
+        }, duration);
+    }
     const toggle = ({ currentTarget: btn }) => {
-        const attr = "data-transition";
-        const duration = transitions.global.duration;
-
         if (!btn.hasAttribute(attr)) {
             btn.setAttribute(attr, "");
 
-            if (!display) {
-                setDisplay(true);
-                setTimeout(() => setTransition(true), 20);
-                setTimeout(() => btn.removeAttribute(attr), duration + 20);
-            } else {
-                setTransition(false)
-                setTimeout(() => {
-                    setDisplay(false);
-                    btn.removeAttribute(attr);
-                }, duration);
-            }
+            !display ? open(btn) : close(btn);
         }
     };
 
-    return { display, transition, toggle };
+    return { display, transition, toggle, open, close };
 }

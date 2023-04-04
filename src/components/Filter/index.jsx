@@ -1,31 +1,70 @@
 import React from "react";
-import { Menu, Button, Wrapper } from "./style";
+import { Menu, Button, Wrapper, Region, Clear } from "./style";
 import SVGArrow from "../../assets/arrow.svg";
+import SVGRemove from "../../assets/remove.svg";
 import useToggler from "../../hooks/useToggler";
+import { CountriesContext } from "../../contexts/CountriesContext";
 
 export default function Filter() {
-    const regions = ["Africa", "America", "Asia", "Europe", "Oceania"];
-    const { display, transition, toggle } = useToggler();
+    const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
+    const { allCountries, setCountries, filter, setFilter } = React.useContext(CountriesContext);
+    const { display, transition, toggle, close } = useToggler();
+    const {
+        display: clear,
+        transition: clearTransition,
+        open: showClear,
+        close: closeClear,
+    } = useToggler();
+    const handleFilter = ({ currentTarget: btn }) => {
+        const region = btn.innerText;
+        const filtered = allCountries.filter(country => country.region === region);
+
+        setCountries(filtered);
+        setFilter(region);
+        close();
+        showClear();
+    };
+    const clearFilter = () => {
+        setCountries(allCountries);
+        setFilter(null);
+        closeClear();
+    };
 
     return (
         <Wrapper>
-            <Button
-                onClick={toggle}
-                $display={display}
-                $transition={transition}
+            <Clear
+                onClick={clearFilter}
+                $clear={clear}
+                $clearTransition={clearTransition}
             >
-                <span>Filter by Region</span>
+                <SVGRemove />
+            </Clear>
 
-                <SVGArrow />
-            </Button>
+            <div>
+                <Button
+                    onClick={toggle}
+                    $display={display}
+                    $transition={transition}
+                >
+                    <span>{filter ? filter : "Filter by Region"}</span>
 
-            <Menu $display={display} $transition={transition}>
-                {regions.map((region) => (
-                    <li key={region}>
-                        <button type="button">{region}</button>
-                    </li>
-                ))}
-            </Menu>
+                    <SVGArrow />
+                </Button>
+
+                <Menu $display={display} $transition={transition}>
+                    {regions.map((region) => (
+                        <li key={region}>
+                            <Region
+                                type="button"
+                                onClick={handleFilter}
+                                $active={filter === region ? true : false}
+                            >
+                                {region}
+                            </Region>
+                        </li>
+                    ))}
+                </Menu>
+            </div>
         </Wrapper>
     );
 }
