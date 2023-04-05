@@ -4,6 +4,7 @@ import Container from "../helpers/Container";
 import { H1 } from "../helpers/Headings";
 import SVGMoon from "../../assets/moon.svg";
 import { useTheme } from "styled-components";
+import { Link } from "react-router-dom";
 
 export default function Header({ themePreference, setThemePreference }) {
     const { transitions } = useTheme();
@@ -27,7 +28,9 @@ export default function Header({ themePreference, setThemePreference }) {
     return (
         <Wrapper>
             <Container>
-                <H1>Where in the world?</H1>
+                <Link to="/">
+                    <H1>Where in the world?</H1>
+                </Link>
 
                 <ThemeSwitcher onClick={toggleTheme}>
                     <SVGMoon />

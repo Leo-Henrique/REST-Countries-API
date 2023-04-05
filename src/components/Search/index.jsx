@@ -32,6 +32,7 @@ export default function Search() {
                 name="search"
                 id="search"
                 placeholder="Search for a country..."
+                autoComplete="off"
                 value={value}
                 onChange={change}
             />

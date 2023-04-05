@@ -18,6 +18,10 @@ export default function Countries() {
             const { response, data } = await request(GET_COUNTRIES);
             
             if (response.ok) {
+                data.sort((a, b) => (
+                    a.name.common.localeCompare(b.name.common)
+                ));
+
                 setAllCountries(data);
                 setCountries(data);
             }

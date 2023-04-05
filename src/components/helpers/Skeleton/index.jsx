@@ -1,6 +1,5 @@
 import React from "react";
 import { Animation, Countries, Country } from "./style";
-import Container from "../Container";
 
 export default function Skeleton({ page }) {
     const [width, setWidth] = React.useState(null);
@@ -20,7 +19,7 @@ export default function Skeleton({ page }) {
             {page === "countries" ? (
                 <Countries ref={container}>
                     <Animation $width={width} />
-                    
+
                     {Array.from({ length: 8 }).map((i, index) => (
                         <div key={index}></div>
                     ))}

@@ -15,6 +15,17 @@ export const Wrapper = styled.header(({ theme }) => (css`
         ${theme.breakpoints.sm} {
             gap: 3rem;
         }
+        > a {
+            ${theme.mixins.transition(["opacity"])};
+            ${theme.media.desktop} {
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+            &:active {
+                opacity: 0.4;
+            }
+        }
     }
 `));
 
