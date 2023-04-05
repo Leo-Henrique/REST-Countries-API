@@ -8,6 +8,7 @@ import SVGBack from "../../../assets/back.svg";
 import { H2 } from "../../helpers/Headings";
 import useFetch from "../../../hooks/useFetch";
 import Error from "../../helpers/Error";
+import Skeleton from "../../helpers/Skeleton";
 
 export default function Country() {
     const { id } = useParams();
@@ -58,8 +59,6 @@ export default function Country() {
         } else getCountry();
     }, [id]);
 
-console.log(country)
-
     if (country) {
         return (
             <Wrapper>
@@ -74,6 +73,7 @@ console.log(country)
                     <img 
                         src={country.flags.svg} 
                         alt={country.name.common} 
+                        onLoad={({ target }) => target.style.opacity = 1} 
                     />
                 </Flag>
 
@@ -109,7 +109,7 @@ console.log(country)
         );
     } 
     else if (loading)
-        return <>Loading</>
+        return <Skeleton page="country" />
     else if (error)
         return <Error msg={error} />;
     else

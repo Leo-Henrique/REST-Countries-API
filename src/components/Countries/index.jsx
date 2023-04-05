@@ -6,6 +6,7 @@ import { H2 } from "../helpers/Headings";
 import { GET_COUNTRIES } from "../../API";
 import useFetch from "../../hooks/useFetch";
 import Error from "../helpers/Error";
+import Skeleton from "../helpers/Skeleton";
 
 export default function Countries() {
     const { setAllCountries, countries, setCountries } = 
@@ -29,7 +30,11 @@ export default function Countries() {
                 {countries.map(({ flags, name, population, region, capital }) => (
                     <li key={name.common}>
                         <Link to={`country/${name.common}`}>
-                            <img src={flags.svg} alt="" />
+                            <img 
+                                src={flags.svg} 
+                                alt="" 
+                                onLoad={({ target }) => target.style.opacity = 1} 
+                            />
                             
                             <Content>
                                 <H2>{name.common}</H2>
@@ -56,7 +61,7 @@ export default function Countries() {
         );
     } 
     else if (loading)
-        return <>Loading</>
+        return <Skeleton page="countries" />
     else if (error)
         return <Error msg={error} />
     else null;

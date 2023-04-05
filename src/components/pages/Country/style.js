@@ -55,6 +55,8 @@ export const Flag = styled.div(({ theme }) => (css`
         width: 100%;
         height: 400px;
         object-fit: cover;
+        opacity: 0;
+        ${theme.mixins.transition(["opacity", "global"])};
 
         ${theme.breakpoints.md} {
             height: 300px;
@@ -88,10 +90,11 @@ export const Content = styled.div(({ theme }) => (css`
 export const Infos = styled.ul(({ theme }) => (css`
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0.6rem;
+    row-gap: 0.6rem;
+    column-gap: 2rem;
 
     ${theme.mixins.infos};
-    ${theme.breakpoints.md} {
+    ${theme.breakpoints.lg} {
         grid-template-columns: 1fr;
     }
 `));

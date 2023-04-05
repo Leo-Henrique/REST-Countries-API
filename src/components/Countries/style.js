@@ -14,6 +14,7 @@ export const Wrapper = styled.ul(({ theme }) => (css`
     }
 
     > li {
+        max-width: 590px;
         flex: 1 260px;
         background-color: ${theme.colors.block};
         border-radius: ${theme.borderRadius.block};
@@ -36,6 +37,8 @@ export const Wrapper = styled.ul(({ theme }) => (css`
         width: 100%;
         height: 200px;
         object-fit: cover;
+        opacity: 0;
+        ${theme.mixins.transition(["opacity", "global"])};
     }
 `));
 

@@ -14,7 +14,7 @@ export const theme = {
             md: "540px",
             sm: "100%",
         },
-        gutter: "30px",
+        gutter: 30,
     },
     fontFamilies: ["'Nunito Sans', sans-serif"],
     fontSizes: {
@@ -46,6 +46,7 @@ export const colorScheme = {
         input: "#858585",
         danger: "#DC3545",
         shadow: "rgba(255, 255, 255, 0)",
+        skeleton: "#d9d9d9",
     },
     dark: {
         block: "#2b3945",
@@ -54,5 +55,6 @@ export const colorScheme = {
         input: "#a6a6a6",
         danger: "#DC3545",
         shadow: "rgba(0, 0, 0, 0.1)",
+        skeleton: "#263340",
     },
 };
