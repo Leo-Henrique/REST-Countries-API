@@ -1,8 +1,10 @@
 import { css, createGlobalStyle } from "styled-components";
 import leoReset from "/node_modules/leo-reset.css/dist/leo-reset.css?inline";
+import leoAnimate from "/node_modules/leo-animate.js/dist/leo-animate.css?inline";
 
 const GlobalStyle = createGlobalStyle(({ theme }) => (css`
     ${leoReset};
+    ${leoAnimate};
 
     body {
         font-size: ${theme.fontSizes.body};

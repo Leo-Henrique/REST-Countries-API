@@ -22,7 +22,7 @@ export default function Search() {
     }
 
     return (
-        <Wrapper htmlFor="search">
+        <Wrapper htmlFor="search" data-animate="fadeDown">
             <span>
                 <SVGSearch />
             </span>

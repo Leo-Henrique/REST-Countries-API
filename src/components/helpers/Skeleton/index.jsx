@@ -6,11 +6,12 @@ export default function Skeleton({ page }) {
     const container = React.useRef();
 
     React.useEffect(() => {
-        const watch = () => setWidth(container.current.clientWidth);
+        const watch = () => {
+            if (container.current) setWidth(container.current.clientWidth);
+        };
 
         watch();
         window.addEventListener("resize", watch);
-
         return () => window.removeEventListener("resize", watch);
     }, []);
 

@@ -9,6 +9,7 @@ import { H2 } from "../../helpers/Headings";
 import useFetch from "../../../hooks/useFetch";
 import Error from "../../helpers/Error";
 import Skeleton from "../../helpers/Skeleton";
+import useAnimation from "../../../hooks/useAnimation";
 
 export default function Country() {
     const { id } = useParams();
@@ -59,17 +60,19 @@ export default function Country() {
         } else getCountry();
     }, [id]);
 
+    useAnimation([country]);
+
     if (country) {
         return (
             <Wrapper>
-                <Back>
+                <Back data-animate="fadeDown">
                     <button type="button" onClick={() => navigate(-1)}>
                         <SVGBack />
                         <span>Back</span>
                     </button>
                 </Back>
 
-                <Flag>
+                <Flag data-animate="fadeLeft">
                     <img 
                         src={country.flags.svg} 
                         alt={country.name.common} 
@@ -77,7 +80,7 @@ export default function Country() {
                     />
                 </Flag>
 
-                <Content>
+                <Content data-animate="fadeLeft">
                     <H2>{country.name.common}</H2>
 
                     <Infos>

@@ -7,6 +7,7 @@ import { GET_COUNTRIES } from "../../API";
 import useFetch from "../../hooks/useFetch";
 import Error from "../helpers/Error";
 import Skeleton from "../helpers/Skeleton";
+import useAnimation from "../../hooks/useAnimation";
 
 export default function Countries() {
     const { setAllCountries, countries, setCountries } = 
@@ -45,13 +46,15 @@ export default function Countries() {
         }
     }, [countries, group]);
 
+    useAnimation([group]);
+
     if (countries) {
         return (
             <Wrapper ref={parent}>
                 {countries.map(({ flags, name, population, region, capital }, index) => {
                     if (index < (items * group))
                         return (
-                            <li key={name.common}>
+                            <li key={name.common} data-animate="fadeRight">
                                 <Link to={`country/${name.common}`}>
                                     <img 
                                         src={flags.svg} 

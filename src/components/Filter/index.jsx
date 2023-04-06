@@ -45,7 +45,7 @@ export default function Filter() {
                 <SVGRemove />
             </Clear>
 
-            <div>
+            <div data-animate="fadeDown">
                 <Button
                     onClick={toggle}
                     $display={display}
