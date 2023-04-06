@@ -60,7 +60,7 @@ export default function Country() {
         } else getCountry();
     }, [id]);
 
-    useAnimation([country]);
+    useAnimation([country, error]);
 
     if (country) {
         return (

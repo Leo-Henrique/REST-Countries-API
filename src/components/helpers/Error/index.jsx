@@ -8,16 +8,18 @@ export default function Error({ msg }) {
 
     return (
         <Wrapper>
-            <H2>An error occurred!</H2>
+            <H2 data-animate="fadeDown">An error occurred!</H2>
 
-            <p>
+            <p data-animate="fadeDown">
                 An error occurred when making the API request we use. The
                 API message says the following: <span>"{msg}"</span>.
             </p>
 
-            <button type="button" onClick={() => navigation(0)}>
-                Refresh the page
-            </button>
+            <div data-animate="fadeDown">
+                <button type="button" onClick={() => navigation(0)}>
+                    Refresh the page
+                </button>
+            </div>
         </Wrapper>
     );
 }

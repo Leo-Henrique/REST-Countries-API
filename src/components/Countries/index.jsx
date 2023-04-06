@@ -46,7 +46,7 @@ export default function Countries() {
         }
     }, [countries, group]);
 
-    useAnimation([group]);
+    useAnimation([group, error]);
 
     if (countries) {
         return (
